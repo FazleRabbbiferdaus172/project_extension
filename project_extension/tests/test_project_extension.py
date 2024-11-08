@@ -72,6 +72,20 @@ class TestProjectExtension(TransactionCase):
         })
         self.assertEqual(visibility_project.privacy_visibility, 'followers')
 
+    def test_project_visibility_can_not_be_changed_from_ui(self):
+        visibility_project = self.PROJECT.create({
+            'name': 'Visibility Project write',
+        })
+        with self.assertRaises(AssertionError):
+            project_form = Form(visibility_project, 'project.edit_project')
+            project_form.privacy_visibility = 'employees'
+            project = project_form.save()
+
+        self.assertEqual(project.privacy_visibility, 'followers', "From ui, should not be changeable")
+
+        visibility_project.with_user(self.user_1).write({'privacy_visibility': 'employees'})
+        self.assertEqual(visibility_project.privacy_visibility, 'employees', "From backend, should be changeable")
+
     def test_team_membership(self):
         """Test that only team members can access the project."""
         # Check that user_1 (team member) can access the project
@@ -80,8 +94,6 @@ class TestProjectExtension(TransactionCase):
 
         project_accessible_by_user_3 = self.PROJECT.browse(self.project.id).with_user(self.user_3.id)
         self.assertTrue(project_accessible_by_user_3.read(), "Team members 3 should have access to the project.")
-        # with self.assertRaises(AccessError, msg="%s should not be able to read the project" % self.user_3.name):
-        #     self.project.with_user(self.user_3.id).name
 
         project_accessible_by_user_2 = self.PROJECT.browse(self.project.id).with_user(self.user_2.id)
         self.assertFalse(project_accessible_by_user_2.read(), "Team members 3 should have access to the project.")
