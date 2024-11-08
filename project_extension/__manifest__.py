@@ -20,7 +20,8 @@
     'version': '0.0.1',
 
     'depends': ['project'],
-
+    'installable': True,
+    'application': True,
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
