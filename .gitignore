@@ -1,0 +1,19 @@
+# sphinx build directories
+_build/
+
+# dotfiles
+.*
+!.gitmodules
+!.gitignore
+!.mailmap
+# compiled python files
+*.py[co]
+__pycache__/
+
+# configuration directory
+/conf/
+
+# skipped directory
+/git_skip_addons/
+*.conf
+
