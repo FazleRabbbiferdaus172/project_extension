@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="spreadsheet_dashboard_project" model="spreadsheet.dashboard">
+        <field name="name">Project</field>
+        <field name="data" type="base64" file="project_extension/data/project_dashboard.json"/>
+        <field name="dashboard_group_id" ref="spreadsheet_dashboard.spreadsheet_dashboard_group_project"/>
+        <field name="group_ids" eval="[Command.link(ref('base.group_user'))]"/>
+        <field name="sequence">100</field>
+    </record>
+</odoo>

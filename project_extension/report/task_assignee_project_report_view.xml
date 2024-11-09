@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_task_assignee_project_report_list" model="ir.ui.view">
+            <field name="name">task.assignee.project.report.list</field>
+            <field name="model">task.assignee.project.report</field>
+            <field name="arch" type="xml">
+                <tree string="Task Assignee Project Report">
+                    <field name="task_id" string="Task"/>
+                    <field name="assignee_id" string="Assignee"/>
+                    <field name="team_id" string="Team"/>
+                    <field name="project_id" string="Project"/>
+                    <field name="is_closed"/>
+                    <field name="date_end"/>
+                    <field name="create_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_task_assignee_project_report" model="ir.actions.act_window">
+            <field name="name">Task Assignee Project Report</field>
+            <field name="res_model">task.assignee.project.report</field>
+            <field name="view_mode">tree,pivot</field>
+            <field name="view_id" ref="view_task_assignee_project_report_list"/>
+        </record>
+
+        <!-- Menu Item for Task Assignee Project Report -->
+        <menuitem id="menu_project_report_task_analysis"
+            name="Team Reports"
+            action="action_task_assignee_project_report"
+            parent="project.menu_project_report"
+            sequence="100"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,461 @@
+{
+    "version": 12,
+    "sheets": [
+        {
+            "id": "sheet1",
+            "name": "Dashboard",
+            "colNumber": 10,
+            "rowNumber": 10,
+            "rows": {
+                "0": {
+                    "size": 100
+                }
+            },
+            "cols": {
+                "0": {
+                    "size": 100
+                }
+            },
+            "merges": [],
+            "cells": {
+                "A1": {
+                    "style": 1,
+                    "content": "[Project task count](odoo://view/{\"viewType\":\"list\",\"action\":{\"domain\":[],\"context\":{\"group_by\":[]},\"modelName\":\"project.task\",\"views\":[[false,\"list\"]]},\"threshold\":0,\"name\":\"TASK\"})",
+                    "border": 1
+                },
+                "A2": {
+                    "style": 2,
+                    "content": "=_t(\"Project\")",
+                    "border": 2
+                },
+                "A3": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,1,\"name\")"
+                },
+                "A4": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,2,\"name\")"
+                },
+                "A5": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,3,\"name\")"
+                },
+                "A6": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,4,\"name\")"
+                },
+                "A7": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,5,\"name\")"
+                },
+                "A8": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,6,\"name\")"
+                },
+                "A9": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,7,\"name\")"
+                },
+                "A10": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,8,\"name\")"
+                },
+                "A11": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,9,\"name\")"
+                },
+                "A12": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,10,\"name\")"
+                },
+                "B2": {
+                    "style": 2,
+                    "content": "=_t(\"Team\")",
+                    "border": 2
+                },
+                "B3": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,1,\"team_id\")"
+                },
+                "B4": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,2,\"team_id\")"
+                },
+                "B5": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,3,\"team_id\")"
+                },
+                "B6": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,4,\"team_id\")"
+                },
+                "B7": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,5,\"team_id\")"
+                },
+                "B8": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,6,\"team_id\")"
+                },
+                "B9": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,7,\"team_id\")"
+                },
+                "B10": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,8,\"team_id\")"
+                },
+                "B11": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,9,\"team_id\")"
+                },
+                "B12": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,10,\"team_id\")"
+                },
+                "C2": {
+                    "style": 2,
+                    "content": "=_t(\"Total Task\")",
+                    "border": 2
+                },
+                "C3": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,1,\"task_count\")"
+                },
+                "C4": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,2,\"task_count\")"
+                },
+                "C5": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,3,\"task_count\")"
+                },
+                "C6": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,4,\"task_count\")"
+                },
+                "C7": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,5,\"task_count\")"
+                },
+                "C8": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,6,\"task_count\")"
+                },
+                "C9": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,7,\"task_count\")"
+                },
+                "C10": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,8,\"task_count\")"
+                },
+                "C11": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(1,9,\"task_count\")"
+                },
+                "C12": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(1,10,\"task_count\")"
+                },
+                "E1": {
+                    "style": 1,
+                    "content": "[Assignee tasks](odoo://view/{\"viewType\":\"list\",\"action\":{\"domain\":[],\"context\":{\"group_by\":[]},\"modelName\":\"project.task\",\"views\":[[false,\"list\"]]},\"threshold\":0,\"name\":\"TASK\"})",
+                    "border": 1
+                },
+                "E2": {
+                    "style": 2,
+                    "content": "=_t(\"Assignee\")",
+                    "border": 2
+                },
+                "E3": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,1,\"assignee_id\")"
+                },
+                "E4": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,2,\"assignee_id\")"
+                },
+                "E5": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,3,\"assignee_id\")"
+                },
+                "E6": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,4,\"assignee_id\")"
+                },
+                "E7": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,5,\"assignee_id\")"
+                },
+                "E8": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,6,\"assignee_id\")"
+                },
+                "E9": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,7,\"assignee_id\")"
+                },
+                "E10": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,8,\"assignee_id\")"
+                },
+                "E11": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,9,\"assignee_id\")"
+                },
+                "E12": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,10,\"assignee_id\")"
+                },
+                "F2": {
+                    "style": 2,
+                    "content": "=_t(\"TASK\")",
+                    "border": 2
+                },
+                "F3": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,1,\"task_id\")"
+                },
+                "F4": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,2,\"task_id\")"
+                },
+                "F5": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,3,\"task_id\")"
+                },
+                "F6": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,4,\"task_id\")"
+                },
+                "F7": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,5,\"task_id\")"
+                },
+                "F8": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,6,\"task_id\")"
+                },
+                "F9": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,7,\"task_id\")"
+                },
+                "F10": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,8,\"task_id\")"
+                },
+                "F11": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,9,\"task_id\")"
+                },
+                "F12": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,10,\"task_id\")"
+                },
+                "G2": {
+                    "style": 2,
+                    "content": "=_t(\"Project\")",
+                    "border": 2
+                },
+                "G3": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,1,\"project_id\")"
+                },
+                "G4": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,2,\"project_id\")"
+                },
+                "G5": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,3,\"project_id\")"
+                },
+                "G6": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,4,\"project_id\")"
+                },
+                "G7": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,5,\"project_id\")"
+                },
+                "G8": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,6,\"project_id\")"
+                },
+                "G9": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,7,\"project_id\")"
+                },
+                "G10": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,8,\"project_id\")"
+                },
+                "G11": {
+                    "style": 3,
+                    "content": "=ODOO.LIST(2,9,\"project_id\")"
+                },
+                "G12": {
+                    "style": 4,
+                    "content": "=ODOO.LIST(2,10,\"task_id\")"
+                }
+            },
+            "conditionalFormats": [],
+            "areGridLinesVisible": true,
+            "isVisible": true
+        }
+    ],
+    "entities": {},
+    "styles": {
+        "1": {
+            "textColor": "#01666b",
+            "bold": true,
+            "fontSize": 16
+        },
+        "2": {
+            "bold": true,
+            "fillColor": ""
+        },
+        "3": {
+            "fillColor": "#f2f2f2",
+            "textColor": "#01666b"
+        },
+        "4": {
+            "textColor": "#01666b"
+        },
+        "5": {
+            "bold": true
+        },
+        "6": {
+            "fillColor": "#f2f2f2",
+            "textColor": "#741b47"
+        },
+        "7": {
+            "textColor": "#741b47"
+        },
+        "8": {
+            "fontSize": 16,
+            "bold": true
+        },
+        "9": {
+            "fillColor": "#f2f2f2"
+        },
+        "10": {
+            "bold": true,
+            "align": "right"
+        },
+        "11": {
+            "bold": true,
+            "fillColor": "",
+            "align": "right"
+        },
+        "12": {
+            "fillColor": ""
+        }
+    },
+    "formats": {
+        "1": "0",
+        "2": "[$$]#,##0",
+        "3": "#,##0"
+    },
+    "borders": {
+        "1": {
+            "bottom": [
+                "thin",
+                "#000"
+            ]
+        },
+        "2": {
+            "top": [
+                "thin",
+                "#000"
+            ]
+        }
+    },
+    "revisionId": "START_REVISION",
+    "odooVersion": 4,
+    "lists": {
+        "1": {
+            "columns": [
+                "name",
+                "task_count",
+                "create_date",
+                "team_id"
+            ],
+            "domain": [
+            ],
+            "model": "project.project",
+            "context": {},
+            "orderBy": [
+            ],
+            "id": "1",
+            "name": "project"
+        },
+        "2": {
+            "columns": [
+                "task_id",
+                "assignee_id",
+                "team_id"
+            ],
+            "domain": [
+                [
+                    "is_closed",
+                    "=",
+                    0
+                ]
+            ],
+            "model": "task.assignee.project.report",
+            "context": {},
+            "orderBy": [
+            ],
+            "id": "2",
+            "name": "Task"
+        }
+    },
+    "listNextId": 3,
+    "globalFilters": [
+        {
+            "id": "create-date",
+            "type": "date",
+            "label": "Period",
+            "rangeType": "relative",
+            "defaultsToCurrentPeriod": false,
+            "pivotFields": {
+            },
+            "listFields": {
+                "1": {
+                    "field": "create_date",
+                    "type": "datetime",
+                    "offset": 0
+                },
+                "2": {
+                    "field": "create_date",
+                    "type": "datetime",
+                    "offset": 0
+                }
+            },
+            "graphFields": {
+                "a527960b-0812-4291-baba-f6b4b5280a0d": {
+                    "field": "date",
+                    "type": "datetime",
+                    "offset": 0
+                }
+            }
+        },
+        {
+            "id": "project-task-assignee",
+            "type": "relation",
+            "label": "Assignee",
+            "modelName": "res.users",
+            "defaultValue": [],
+            "defaultValueDisplayNames": [],
+            "rangeType": "relative",
+            "defaultsToCurrentPeriod": false,
+            "listFields": {
+                "2": {
+                    "field": "assignee_id",
+                    "type": "many2one"
+                }
+            }
+        }
+    ]
+}
