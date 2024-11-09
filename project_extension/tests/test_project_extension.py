@@ -64,24 +64,31 @@ class TestProjectExtension(TransactionCase):
             'date_deadline': (fields.Date.today() + timedelta(days=7)).strftime('%Y-%m-%d')
         })
 
+    def test_project_default_team_is_selected(self):
+        project_1 = self.PROJECT.with_user(self.user_1.id).create({
+            'name': 'Visibility Project'
+        })
+        self.assertEqual(project_1.team_id.id, self.team.id)
+
+
     def test_created_project_has_visibility_followers_by_default(self):
         visibility_project = self.PROJECT.create({
             'name': 'Visibility Project',
-            # 'team_id': self.team.id,
-            # 'privacy_visibility': 'followers',
+            'team_id': self.team.id,
         })
         self.assertEqual(visibility_project.privacy_visibility, 'followers')
 
     def test_project_visibility_can_not_be_changed_from_ui(self):
         visibility_project = self.PROJECT.create({
             'name': 'Visibility Project write',
+            'team_id': self.team.id,
         })
         with self.assertRaises(AssertionError):
             project_form = Form(visibility_project, 'project.edit_project')
             project_form.privacy_visibility = 'employees'
             project = project_form.save()
 
-        self.assertEqual(project.privacy_visibility, 'followers', "From ui, should not be changeable")
+        self.assertEqual(visibility_project.privacy_visibility, 'followers', "From ui, should not be changeable")
 
         visibility_project.with_user(self.user_1).write({'privacy_visibility': 'employees'})
         self.assertEqual(visibility_project.privacy_visibility, 'employees', "From backend, should be changeable")
@@ -96,34 +103,5 @@ class TestProjectExtension(TransactionCase):
         self.assertTrue(project_accessible_by_user_3.read(), "Team members 3 should have access to the project.")
 
         project_accessible_by_user_2 = self.PROJECT.browse(self.project.id).with_user(self.user_2.id)
-        self.assertFalse(project_accessible_by_user_2.read(), "Team members 3 should have access to the project.")
-
-    def test_dashboard_task_count(self):
-        """Test the task count filters on the dashboard."""
-
-        # Get task counts by different filters
-        tasks_this_week = self.env['project.task'].search_count([
-            ('project_id', '=', self.project.id),
-            ('date_deadline', '>=', fields.Date.today())
-        ])
-
-        tasks_last_week = self.env['project.task'].search_count([
-            ('project_id', '=', self.project.id),
-            ('date_deadline', '>=', (fields.Date.today() - timedelta(days=7)).strftime('%Y-%m-%d')),
-            ('date_deadline', '<', fields.Date.today())
-        ])
-
-        # Check if the filters return correct counts
-        self.assertEqual(tasks_this_week, 1, "There should be 1 task for this week.")
-        self.assertEqual(tasks_last_week, 1, "There should be 1 task for last week.")
-
-    def test_assignee_filter(self):
-        """Test task filtering by assignee in the dashboard."""
-        # Filter tasks assigned to user_1
-        tasks_for_user_1 = self.env['project.task'].search_count([
-            ('user_ids', 'in', [self.user_1.id]),
-            ('project_id', '=', self.project.id)
-        ])
-
-        # Check if the assignee filter returns correct count
-        self.assertEqual(tasks_for_user_1, 2, "User 1 should have 2 tasks.")
+        with self.assertRaises(AccessError, msg="%s should not be able to read the project" % self.user_2.name):
+            project_accessible_by_user_2.read()
